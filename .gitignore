@@ -4,6 +4,8 @@
 *.dll
 *.so
 *.dylib
+coredns
+coredns-opa
 
 # Test binary, built with `go test -c`
 *.test
