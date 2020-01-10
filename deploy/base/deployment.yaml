@@ -95,6 +95,7 @@ spec:
         - "--ignore=.*"  # exclude hidden dirs created by Kubernetes
         - "--server"
         - "--addr=127.0.0.1:8282"
+        - "--log-level=debug"
         - "/policies"
         volumeMounts:
         - readOnly: true
