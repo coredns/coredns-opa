@@ -1,0 +1,22 @@
+.:53 {
+    errors
+    health {
+      lameduck 5s
+    }
+    opa localopa {
+      endpoint http://127.0.0.1:8181/v1/data/dns/action
+    }
+    firewall query {
+      opa localopa
+    }
+    ready
+    kubernetes cluster.local in-addr.arpa ip6.arpa {
+      fallthrough in-addr.arpa ip6.arpa
+    }
+    prometheus :9153
+    forward . /etc/resolv.conf
+    cache 30
+    loop
+    reload
+    loadbalance
+}
