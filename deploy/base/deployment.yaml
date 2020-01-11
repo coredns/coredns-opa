@@ -94,8 +94,8 @@ spec:
         - "run"
         - "--ignore=.*"  # exclude hidden dirs created by Kubernetes
         - "--server"
-        - "--addr=127.0.0.1:8282"
-        - "--log-level=debug"
+        - "--addr=0.0.0.0:8282"
+        - "--set=decision_logs.console=true"
         - "/policies"
         volumeMounts:
         - readOnly: true
@@ -104,12 +104,13 @@ spec:
         livenessProbe:
           httpGet:
             scheme: HTTP
+            path: /health
             port: 8282
           initialDelaySeconds: 5
           periodSeconds: 5
         readinessProbe:
           httpGet:
-            path: /health?bundle=true  # Include bundle activation in readiness
+            path: /health
             scheme: HTTP
             port: 8282
           initialDelaySeconds: 5
