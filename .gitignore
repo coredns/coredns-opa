@@ -15,3 +15,5 @@ coredns-opa
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+deploy/kubeconfig
