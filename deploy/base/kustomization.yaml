@@ -10,8 +10,10 @@ configMapGenerator:
 - files:
   - Corefile
   name: coredns
+  namespace: kube-system
 - files:
   - coredns.rego
   name: coredns-opa-policies
+  namespace: kube-system
 generatorOptions:
   disableNameSuffixHash: true
